@@ -1,9 +1,8 @@
 import pygame
-pygame.init()
 
+pygame.init()
 W, H = 800, 800
 FPS = 60
-
 window = pygame.display.set_mode((W, H))
 clock = pygame.time.Clock()
 
