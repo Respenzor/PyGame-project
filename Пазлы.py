@@ -12,6 +12,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
     intro_text = ["Играть",
                   "Правила",
                   "Настройки"]
