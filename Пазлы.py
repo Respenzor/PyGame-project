@@ -62,6 +62,8 @@ def start_screen():
             button.draw(window)
         pygame.display.update()
         clock.tick(FPS)
+
+
 class Buttons:
     def __init__(self, x, y, width, height, text, image_location, image_actived_location=None, button_actived_location=None):
         self.x = x
@@ -97,6 +99,7 @@ class Buttons:
             if self.sound:
                 self.sound.play()
             pygame.event.post(pygame.event.Event(pygame.USEREVENT, button=self))
+
 
 if __name__ == '__main__':
     start_screen()
