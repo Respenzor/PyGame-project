@@ -111,17 +111,6 @@ class Buttons:
             pygame.event.post(pygame.event.Event(pygame.USEREVENT, button=self))
 
 
-if __name__ == '__main__':
-    start_screen()
-
-import pygame
-
-pygame.init()
-size = 500, 500
-screen = pygame.display.set_mode(size)
-pygame.display.set_caption('Координаты клетки')
-
-
 class Board:
     def __init__(self, width, height):
         self.width = width
@@ -161,20 +150,4 @@ class Board:
 
 
 if __name__ == '__main__':
-    pygame.init()
-    size = 400, 450
-    screen = pygame.display.set_mode(size)
-    pygame.display.set_caption('Инициализация игры')
-    board = Board(5, 7)
-    board.set_view(50, 50, 50)
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            board.get_click(event.pos)
-    screen.fill((0, 0, 0))
-    board.render()
-    pygame.display.flip()
-pygame.quit()
+    start_screen()
