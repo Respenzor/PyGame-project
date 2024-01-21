@@ -33,6 +33,8 @@ def start_screen():
     quit_button = Buttons(250, 475, 300, 100, 'Выход', BUTTON_IMAGE, BUTTON_ACTIVE_IMAGE, BUTTON_SOUND)
     buttons = [start_button, options_button, quit_button]
 
+    game_started = False
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -45,14 +47,21 @@ def start_screen():
 
             if event.type == pygame.USEREVENT:
                 if event.button == start_button:
-                    print(' ')
+                    game_started = True
+                    pygame.display.set_mode((1920, 1800))
+                    window.fill((0, 0, 0))
                     # Начало игры при нажатии на кнопку
                 elif event.button == options_button:
-                    print(' ')
+                    print('Нажата кнопка настроек')
                     # Открытие окна настроек при нажатии на кнопку
                 elif event.button == quit_button:
                     pygame.quit()
                     sys.exit()
+
+        if game_started:
+            # Код для отрисовки игрового экрана
+            pygame.display.flip()
+            continue
 
         mouse_pos = pygame.mouse.get_pos()
         for button in buttons:
@@ -65,7 +74,8 @@ def start_screen():
 
 
 class Buttons:
-    def __init__(self, x, y, width, height, text, image_location, image_actived_location=None, button_actived_location=None):
+    def __init__(self, x, y, width, height, text, image_location, image_actived_location=None,
+                 button_actived_location=None):
         self.x = x
         self.y = y
         self.width = width
