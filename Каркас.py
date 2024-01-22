@@ -5,13 +5,8 @@ FPS = 60
 window = pygame.display.set_mode((W, H))
 clock = pygame.time.Clock()
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+def start_screen():
+    print('Вызвана функция запуска меню игры')
 
-    pygame.display.update()
-    clock.tick(FPS)
-
-pygame.quit()
+if __name__ == '__main__':
+    start_screen()
