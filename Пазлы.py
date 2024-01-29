@@ -50,7 +50,7 @@ def start_screen():
             if event.type == pygame.USEREVENT:
                 if event.button == start_button:
                     game_started = True
-                    pygame.display.set_mode((1920, 1800))
+                    pygame.display.set_mode((1000, 800))
                     window.fill((0, 0, 0))
                 elif event.button == options_button:
                     print('Нажата кнопка настроек')
@@ -123,13 +123,21 @@ class Board:
         self.board = [[1] * width for _ in range(height)]
         self.left = 100 #смещение по оси абцисс
         self.top = 100 #смещение по оси ординат
-        self.cell_size = 150 #размер клеток
+        self.cell_size = 100 #размер клеток
 
     def render(self):
+        window_width, window_height = window.get_size()
+        board_width = self.width * self.cell_size
+        board_height = self.height * self.cell_size
+        left = (window_width - board_width) // 2
+        top = (window_height - board_height) // 2
+
         for y in range(self.height):
             for x in range(self.width):
-                pygame.draw.rect(window, pygame.Color(255, 255, 255), (
-                    x * self.cell_size + self.left, y * self.cell_size + self.top, self.cell_size, self.cell_size), self.board[y][x])
+                cell_left = x * self.cell_size + left
+                cell_top = y * self.cell_size + top
+                if cell_left >= 0 and cell_left + self.cell_size <= window_width and cell_top >= 0 and cell_top + self.cell_size <= window_height:
+                    pygame.draw.rect(window, pygame.Color(255, 255, 255), (cell_left, cell_top, self.cell_size, self.cell_size), self.board[y][x])
         pygame.display.flip()
 
         while True:
@@ -147,6 +155,11 @@ class Board:
             clock.tick(FPS)
 
     def set_view(self, left, top, cell_size):
+        window_width, window_height = window.get_size()
+        board_width = self.width * cell_size
+        board_height = self.height * cell_size
+        left = (window_width - board_width) // 2
+        top = (window_height - board_height) // 2
         self.left = left
         self.top = top
         self.cell_size = cell_size
