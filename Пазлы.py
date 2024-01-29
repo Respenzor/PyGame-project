@@ -45,10 +45,10 @@ def start_screen():
 
             if event.type == pygame.USEREVENT:
                 if event.button == start_button:
-                    print(' ')
+                    print('')
                     # Начало игры при нажатии на кнопку
                 elif event.button == options_button:
-                    print(' ')
+                    print('')
                     # Открытие окна настроек при нажатии на кнопку
                 elif event.button == quit_button:
                     pygame.quit()
