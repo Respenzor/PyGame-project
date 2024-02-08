@@ -44,7 +44,7 @@ def start_screen():
                     button.event(event)
             if event.type == pygame.USEREVENT:
                 if event.button == start_button:
-                    print(' ')
+                    print('0 ')
                 elif event.button == options_button:
                     pygame.display.set_mode((800, 700))
                     start_button = Buttons(250, 225, 300, 100, 'Настройки музыки и звуков', BUTTON_IMAGE,
