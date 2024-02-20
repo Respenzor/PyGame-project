@@ -174,6 +174,7 @@ class Board:
                     cell_top = (self.height - y) * self.cell_size + self.top
                     pygame.draw.rect(window, pygame.Color(0, 0, 0),
                                      (cell_left, cell_top, self.cell_size, self.cell_size), 1)
+
             for sprite, (x, y) in sprites[0:-1]:
                 window.blit(sprite, (x - 250, y))
 
