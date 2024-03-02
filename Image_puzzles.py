@@ -7,7 +7,6 @@ BUTTON_IMAGE = 'knopka.png' #Изображение кнопки
 BUTTON_ACTIVE_IMAGE = 'knopka_active.png' #Изображение кнопки при наведении на неё
 BUTTON_SOUND = 'knopka_press.mp3' #Звук нажатия на кнопку
 
-#Инициализация
 pygame.init()
 W_game, H_game = 1920, 1000 #Размеры окна игры
 pygame.display.set_caption(GAME_NAME)
